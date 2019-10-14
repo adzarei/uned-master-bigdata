@@ -4,3 +4,4 @@
 .Ruserdata
 MED/conda-env/*
 *.Rproj
+*.ipynb
