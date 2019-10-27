@@ -4,4 +4,5 @@
 .Ruserdata
 */conda-env/*
 *.Rproj
-*.ipynb
+*.ipynb_*
+*.idea/*
