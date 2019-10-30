@@ -5,8 +5,8 @@ services:
     image: accaminero/cloudera-hadoop-namenodep3
     container_name: namenode
     hostname: namenode
-    command: bash -c "wget https://raw.githubusercontent.com/accaminero/cluster-hadoop-docker/master/startup.sh;
-                      wget https://raw.githubusercontent.com/accaminero/cluster-hadoop-docker/master/supervisord.conf;
+    command: bash -c "wget https://raw.githubusercontent.com/adzarei/uned-master-bigdata/icp/ICP/cluster-hadoop-docker-master/startup.sh
+                      wget https://raw.githubusercontent.com/adzarei/uned-master-bigdata/icp/ICP/cluster-hadoop-docker-master/supervisord.conf;
                       chmod u+x startup.sh;
                       ./startup.sh;
                       /usr/bin/supervisord -c ./supervisord.conf;"
