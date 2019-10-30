@@ -5,3 +5,4 @@
 */conda-env/*
 *.Rproj
 *.ipynb
+*/.idea/*
