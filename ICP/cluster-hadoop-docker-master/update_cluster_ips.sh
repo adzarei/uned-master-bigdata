@@ -5,7 +5,7 @@
 #TODO: use sed to update the ip address in /private/etc/hosts of each node automatically.
 
 
-version="1.0"
+version="1.1"
 header="UPDATE_CLUSTER_IPS.sh"
 
 echo $header
@@ -15,21 +15,21 @@ echo ""
 echo "Printing IP Address of each node..."
 
 echo "namenode"
-docker inspect namenode | grep IPAddress
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'  namenode
 
 echo "yarnnode"
-docker inspect yarnmaster | grep IPAddress
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' yarnmaster
 
 echo "datanode1"
-docker inspect datanode1 | grep IPAddress
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' yarnmaster
 
 echo "datanode2"
-docker inspect datanode2 | grep IPAddress
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' yarnmaster
 
 echo "datanode3"
-docker inspect datanode3 | grep IPAddress
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' yarnmaster
 
 echo "datanode4"
-docker inspect datanode4 | grep IPAddress
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' yarnmaster
 
 echo "End script"
