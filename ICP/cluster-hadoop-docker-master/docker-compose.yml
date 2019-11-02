@@ -1,15 +1,21 @@
 version: '3'
+#Original URLs
+#https://raw.githubusercontent.com/accaminero/cluster-hadoop-docker/master/startup.sh;
+#https://raw.githubusercontent.com/accaminero/cluster-hadoop-docker/master/supervisord.conf;
 
 services:
   namenode:
     image: accaminero/cloudera-hadoop-namenodep3
     container_name: namenode
     hostname: namenode
-    command: bash -c "wget https://raw.githubusercontent.com/adzarei/uned-master-bigdata/icp/ICP/cluster-hadoop-docker-master/startup.sh
+    command: bash -c "test -f startup.sh && rm startup.sh;
+                      test -f supervisord.conf && rm supervisord.conf;
+                      wget https://raw.githubusercontent.com/adzarei/uned-master-bigdata/icp/ICP/cluster-hadoop-docker-master/startup.sh;
                       wget https://raw.githubusercontent.com/adzarei/uned-master-bigdata/icp/ICP/cluster-hadoop-docker-master/supervisord.conf;
                       chmod u+x startup.sh;
                       ./startup.sh;
                       /usr/bin/supervisord -c ./supervisord.conf;"
+    networks:
       - hadoop          
     ports:
       - 8020:8020
