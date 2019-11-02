@@ -17,19 +17,19 @@ echo "Printing IP Address of each node..."
 echo "namenode"
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'  namenode
 
-echo "yarnnode"
+echo "yarnmaster"
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' yarnmaster
 
 echo "datanode1"
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' yarnmaster
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' datanode1
 
 echo "datanode2"
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' yarnmaster
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' datanode2
 
 echo "datanode3"
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' yarnmaster
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' datanode3
 
 echo "datanode4"
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' yarnmaster
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' datanode4
 
 echo "End script"
