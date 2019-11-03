@@ -1,4 +1,4 @@
-cversion: '3'
+version: '3'
 #Original URLs
 #https://raw.githubusercontent.com/accaminero/cluster-hadoop-docker/master/startup.sh;
 #https://raw.githubusercontent.com/accaminero/cluster-hadoop-docker/master/supervisord.conf;
