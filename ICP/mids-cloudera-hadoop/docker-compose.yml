@@ -23,5 +23,5 @@ services:
       - "60010:60010" # hbase
     tty: true
     stdin_open: true
-    volumes: 
-      - /media/notebooks:/media/notebooks
+    volumes:
+      - $ICP_HOME/media/notebook:/media/notebooks
