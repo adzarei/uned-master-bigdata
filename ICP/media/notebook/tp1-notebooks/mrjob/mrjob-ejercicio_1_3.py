@@ -46,11 +46,10 @@ class MRPaisMaxClientesBuenos(MRJob):
            else:
                if pair[0] == max_count:
                    top_countries.append(pair[1])
+                   
        for country in top_countries:            
            yield  max_count, country  
    
-           
-           
        
    def steps(self):
        return [
