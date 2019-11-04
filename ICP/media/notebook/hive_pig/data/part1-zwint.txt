@@ -1,0 +1,2 @@
+160455_s_at	Zwint	5437.5	6415.8	7748.9	8008.9	ZW10 interactor	52696				UI-M-BH2.1-apm-d-05-0-UI.s1 NIH_BMAP_M_S3.1 Mus musculus cDNA clone UI-M-BH2.1-apm-d-05-0-UI 3-, mRNA sequence
+99087_at	Zwint	3958.7	3107.4	4313.5	4526.7	ZW10 interactor	52696				UI-M-BH1-amu-d-09-0-UI.s1 NIH_BMAP_M_S2 Mus musculus cDNA clone UI-M-BH1-amu-d-09-0-UI 3-, mRNA sequence
