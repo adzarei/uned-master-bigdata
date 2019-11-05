@@ -1,0 +1,4 @@
+161272_f_at	Znrf2	1216.3	1587.7	759.5	1063.2	zinc and ring finger 2	Znrf2	387524				AV321418 RIKEN full-length enriched, 13 days embryo male testis Mus musculus cDNA clone 6030433H08 3-, mRNA sequence
+99574_at	Znrf2	3783.4	3126.3	2105.4	1684.7	zinc and ring finger 2	Znrf2	387524				UI-M-BH0-ajt-g-01-0-UI.s1 NIH_BMAP_M_S1 Mus musculus cDNA clone UI-M-BH0-ajt-g-01-0-UI 3-, mRNA sequence
+104396_at	Znrf2	1963.8	1770.9	943.7	951.4	zinc and ring finger 2	Znrf2	387524				ub19g08.r1 Soares_thymus_2NbMT Mus musculus cDNA clone IMAGE:1378238 5-, mRNA sequence
+104418_at	Znrf2	840.3	919.4	300.9	487.1	zinc and ring finger 2	Znrf2	387524				vp19h01.r1 Soares_mammary_gland_NbMMG Mus musculus cDNA clone IMAGE:1069105 5-, mRNA sequence
