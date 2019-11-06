@@ -28,4 +28,4 @@ services:
     tty: true
     stdin_open: true
     volumes:
-      - $ICP_HOME/media/notebook:/media/notebooks
+      - $ICP_HOME/media/notebook:/media/notebook

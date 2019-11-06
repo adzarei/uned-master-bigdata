@@ -12,4 +12,4 @@ echo "Config folder created: $?"
 #echo adding password \'uned\' to jupyter.
 #sed -i "s/c.NotebookApp.password = ''/c.NotebookApp.password = 'uned'/g" ~/.jupyter/jupyter_notebook_config.py
 
-jupyter notebook --port 8889 --NotebookApp.token="uned" --notebook-dir='/media/notebooks' --ip='*' --no-browser &
+jupyter notebook --port 8889 --NotebookApp.token="uned" --notebook-dir='/media/notebook' --ip='*' --no-browser &
