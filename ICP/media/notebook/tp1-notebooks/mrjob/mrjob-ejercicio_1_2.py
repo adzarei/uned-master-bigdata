@@ -41,10 +41,13 @@ class MRPaisMaxClientesBuenos(MRJob):
    
    
    # Este reducer se encarga de devolver el número máximo de clientes buenos y el pais.
-   # Aplica la función max sobre la tupla
+   # Aplica la función max de python sobre la lista de tuplas y devuelve la tupla con mas clientes buenos.
+   # Nota: Sólo devuelve 1 en caso de estar empatados.
    def reducer_max_clients_bueno(self, _, country_pair):
        yield max(country_pair)
        
+       
+   # Usamos steps para definir el orden de los mappers y reducers.
    def steps(self):
        return [
            MRStep(
