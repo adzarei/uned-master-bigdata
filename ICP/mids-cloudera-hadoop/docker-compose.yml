@@ -4,7 +4,11 @@ services:
     image: ankittharwani/mids-cloudera-hadoop:latest
     hostname: quickstart.cloudera
     privileged: true
-    command: bash -c "/root/startup.sh; /usr/bin/docker-quickstart; conda install -c conda-forge mrjob=0.5.5"
+    command: bash -c "test -f ~/startup.sh && rm ~/startup.sh;
+                      wget https://raw.githubusercontent.com/adzarei/uned-master-bigdata/icp/ICP/mids-cloudera-hadoop/startup.sh;
+                      mv /startup.sh ~/startup.sh;
+                      chmod 755 ~/startup.sh;
+                      sh ~/startup.sh; /usr/bin/docker-quickstart; conda install -c conda-forge mrjob=0.5.5;"
     ports:
       - "8887:8888"   # Hue server
       - "8889:8889"   # jupyter
@@ -24,4 +28,4 @@ services:
     tty: true
     stdin_open: true
     volumes:
-      - $ICP_HOME/media/notebook:/media/notebooks
+      - $ICP_HOME/media/notebook:/media/notebook
