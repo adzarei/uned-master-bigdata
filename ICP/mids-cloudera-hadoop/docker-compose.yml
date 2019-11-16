@@ -5,7 +5,7 @@ services:
     hostname: quickstart.cloudera
     privileged: true
     command: bash -c "test -f ~/startup.sh && rm ~/startup.sh;
-                      wget https://raw.githubusercontent.com/adzarei/uned-master-bigdata/icp/ICP/mids-cloudera-hadoop/startup.sh;
+                      wget https://raw.githubusercontent.com/adzarei/uned-master-bigdata/1.0.0/ICP/mids-cloudera-hadoop/startup.sh;
                       mv /startup.sh ~/startup.sh;
                       chmod 755 ~/startup.sh;
                       sh ~/startup.sh; /usr/bin/docker-quickstart; conda install -c conda-forge mrjob=0.5.5;"

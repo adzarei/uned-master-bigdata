@@ -10,8 +10,8 @@ services:
     hostname: namenode
     command: bash -c "test -f startup.sh && rm startup.sh;
                       test -f supervisord.conf && rm supervisord.conf;
-                      wget https://raw.githubusercontent.com/adzarei/uned-master-bigdata/icp/ICP/cluster-hadoop-docker-master/startup.sh;
-                      wget https://raw.githubusercontent.com/adzarei/uned-master-bigdata/icp/ICP/cluster-hadoop-docker-master/supervisord.conf;
+                      wget https://raw.githubusercontent.com/adzarei/uned-master-bigdata/1.0.0/ICP/cluster-hadoop-docker-master/startup.sh;
+                      wget https://raw.githubusercontent.com/adzarei/uned-master-bigdata/1.0.0/ICP/cluster-hadoop-docker-master/supervisord.conf;
                       chmod u+x startup.sh;
                       ./startup.sh;
                       /usr/bin/supervisord -c ./supervisord.conf;"
