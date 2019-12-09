@@ -47,3 +47,29 @@ summary(model.lr)
 # Para la primera columna tenemos 4 filas que estudiaremos a continuación:
 # La primera fila (Intercept) indica el valor esperado de rta utilizando el valor de la media de exp1, 2 y 3.
 # Desde la segunda a la cuarta fila tenemos el gradiente de la ecuación de cada exp.
+
+model.lr2 = lm(data = datos, formula = rta~exp1+exp3)
+summary(model.lr2)
+
+# Call:
+#   lm(formula = rta ~ exp1 + exp3, data = datos)
+# 
+# Residuals:
+#   Min       1Q   Median       3Q      Max 
+# -1.83742 -0.57356  0.05238  0.44248  1.29768 
+# 
+# Coefficients:
+#   Estimate Std. Error t value Pr(>|t|)    
+# (Intercept) 23.50042    3.71137   6.332 1.84e-06 ***
+#   exp1         0.60196    0.04254  14.150 7.72e-13 ***
+#   exp3        -4.16392    0.31471 -13.231 3.07e-12 ***
+#   ---
+#   Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+# 
+# Residual standard error: 0.7977 on 23 degrees of freedom
+# Multiple R-squared:  0.9463,	Adjusted R-squared:  0.9417 
+# F-statistic: 202.7 on 2 and 23 DF,  p-value: 2.469e-15
+
+f = factor(exp3)
+model.lr3 = lm(data = datos, formula = rta~exp1+f)
+summary(model.lr3)
