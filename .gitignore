@@ -6,5 +6,5 @@
 *.Rproj
 */.idea/*
 .ipynb_*
-*/metastore_db/*
+metastore_db/
 *derby.log*
