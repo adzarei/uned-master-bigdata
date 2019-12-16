@@ -8,3 +8,4 @@
 .ipynb_*
 metastore_db/
 *derby.log*
+conda_env/

@@ -1,4 +1,4 @@
-name: /Users/adzarei/Documents/UNED/ING_CIENC_DATOS/projects/AAI/conda-env
+name: /home/azapater/projects/uned/uned-master-bigdata/AAI
 channels:
   - defaults
   - conda-forge
@@ -102,5 +102,5 @@ dependencies:
   - zeromq=4.3.1=h0a44026_3
   - zipp=0.6.0=py_0
   - zlib=1.2.11=h1de35cc_3
-prefix: /Users/adzarei/Documents/UNED/ING_CIENC_DATOS/projects/AAI/conda-env
+prefix: /home/azapater/projects/uned/uned-master-bigdata/AAI/conda-env
 
