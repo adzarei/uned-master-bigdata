@@ -1,0 +1,2 @@
+# Jupyter lab remote server port forwarding:
+ssh -L 8888:localhost:8888 azapater@x-wing_local
