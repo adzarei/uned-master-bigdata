@@ -1,9 +1,9 @@
 rm(list=ls())
 source("TP2/aux_functions.R")
 
-data=read.table("TP2/data/le.txt", header = TRUE)
+data=read.table("data/le.txt", header = TRUE)
 
-c_list = read.table("TP2/data/c_num.txt", header=TRUE)
+c_list = read.table("data/c_num.txt", header=TRUE)
 
 # Columna Sano & Enf
 for (c in c_list$num) {
@@ -26,4 +26,5 @@ library(pROC)
 
 roc_obj <- roc(data$rta, data$exp)
 auc(roc_obj)
+# Area under the curve: 0.725
 plot(roc_obj, print.auc=TRUE)
