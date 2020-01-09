@@ -21,7 +21,6 @@ for (c in c_list$num) {
 }
 
 # Curva ROC AUC:
-
 library(pROC)
 
 roc_obj <- roc(data$rta, data$exp)
