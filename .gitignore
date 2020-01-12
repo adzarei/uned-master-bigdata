@@ -11,3 +11,4 @@ metastore_db/
 conda_env/
 *.h5
 tb_logs/
+checkpoint/
