@@ -2,7 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
-*/conda-env/*
+**/conda-env/
 *.Rproj
 */.idea/*
 .ipynb_*
