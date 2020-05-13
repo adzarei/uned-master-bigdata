@@ -1,0 +1,76 @@
+CREATE (e1: Equipo {nombre:'UXportalWeb', departamento:'UX'})
+CREATE (e2: Equipo {nombre:'UXportalInterno', departamento:'UX'})
+CREATE (e3: Equipo {nombre:'ventasMayorista', departamento:'Ventas'})
+CREATE (e4: Equipo {nombre:'recomendaciones', departamento:'DEV'})
+
+CREATE (db1: BaseDatos {nombre:'bu_portal_interno', capa:'Business Unit'})
+CREATE (db2: BaseDatos {nombre:'cd_portal_web', capa:'Common Data'})
+
+CREATE (t1: Tabla {nombre:'security_threat', fecha_creacion:'2019-10-05'})
+CREATE (d1_1: Dato {nombre:'id_cliente', tipo:'String'})
+CREATE (d1_2: Dato {nombre:'fecha_login', tipo:'Date'})
+CREATE (d1_3: Dato {nombre:'ip', tipo:'String'})
+CREATE (d1_4: Dato {nombre:'navegador', tipo:'String'})
+
+CREATE (t2: Tabla {nombre:'logins_portal_web', fecha_creacion:'2019-10-07'})
+CREATE (d2_1: Dato {nombre:'id_cliente', tipo:'String'})
+CREATE (d2_2: Dato {nombre:'fecha_login', tipo:'Date'})
+CREATE (d2_3: Dato {nombre:'ip', tipo:'String'})
+CREATE (d2_4: Dato {nombre:'navegador', tipo:'String'})
+
+CREATE (t3: Tabla {nombre:'kpi_recomendacion', fecha_creacion:'2019-10-07'})
+CREATE (d3_1: Dato {nombre:'id_cliente', tipo:'String'})
+CREATE (d3_2: Dato {nombre:'id_producto', tipo:'Int'})
+CREATE (d3_3: Dato {nombre:'kpi_base', tipo:'Decimal(16,15)'})
+CREATE (d3_4: Dato {nombre:'kpi_prediccion', tipo:'Decimal(16,15)'})
+
+CREATE (t4: Tabla {nombre:'pedidos_portal_web', fecha_creacion:'2019-10-07'})
+CREATE (d4_1: Dato {nombre:'id_cliente', tipo:'String'})
+CREATE (d4_2: Dato {nombre:'id_producto', tipo:'Int'})
+CREATE (d4_3: Dato {nombre:'precio', tipo:'Decimal(3,2)'})
+CREATE (d4_4: Dato {nombre:'is_recomendado', tipo:'Boolean'})
+CREATE (db1)-[:CONTIENE]->(t1),
+ (db2)-[:CONTIENE]->(t2),
+ (db2)-[:CONTIENE]->(t3),
+ (db2)-[:CONTIENE]->(t4),
+ (t1)-[:CONTIENE]->(d1_1),
+ (t1)-[:CONTIENE]->(d1_2),
+ (t1)-[:CONTIENE]->(d1_3),
+ (t1)-[:CONTIENE]->(d1_4),
+ (t2)-[:CONTIENE]->(d2_1),
+ (t2)-[:CONTIENE]->(d2_2),
+ (t2)-[:CONTIENE]->(d2_3),
+ (t2)-[:CONTIENE]->(d2_4),
+ (t3)-[:CONTIENE]->(d3_1),
+ (t3)-[:CONTIENE]->(d3_2),
+ (t3)-[:CONTIENE]->(d3_3),
+ (t3)-[:CONTIENE]->(d3_4),
+ (t4)-[:CONTIENE]->(d4_1),
+ (t4)-[:CONTIENE]->(d4_2),
+ (t4)-[:CONTIENE]->(d4_3),
+ (t4)-[:CONTIENE]->(d4_4),
+ (e1)-[:PROPIETARIO]->(t2),
+ (e2)-[:PROPIETARIO]->(db1),
+ (e2)-[:PROPIETARIO]->(t1),
+ (e4)-[:PROPIETARIO]->(db2),
+ (e4)-[:PROPIETARIO]->(t3),
+ (e4)-[:PROPIETARIO]->(t4),
+ (e1)-[:CONSUME]->(t4),
+ (e2)-[:CONSUME]->(t2),
+ (e2)-[:CONSUME]->(t4),
+ (e3)-[:CONSUME]->(t3),
+ (e3)-[:CONSUME]->(t4),
+ (e4)-[:CONSUME]->(t2),
+ (d3_4)<-[:DEPENDE]-(d4_4)-[:DEPENDE]->(d3_3),
+ (d2_1)<-[:DEPENDE]-(d3_1)-[:DEPENDE]->(d1_1),
+ (d1_3)-[:DEPENDE]->(d2_3);
+
+
+MATCH (:Dato {nombre:'kpi_prediccion'})<-[:DEPENDE*]-(:Dato)<-[:CONTIENE]-(t:Tabla)<--(e:Equipo)
+RETURN t,e;
+
+MATCH (t_orig:Tabla {nombre:'security_threat'})-[:CONTIENE]->(d:Dato {nombre:'id_cliente'})<-[:DEPENDE*]-(:Dato)<-[:CONTIENE]-(t:Tabla)<--(e:Equipo)
+RETURN t,e;
+
+MATCH (t:Tabla)<-[:PROPIETARIO]-(:Equipo {nombre:'recomendaciones'})
+RETURN t;

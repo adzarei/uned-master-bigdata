@@ -1,0 +1,10 @@
+MATCH(c:Cliente)-[:BAD]->(p:Producto {id: 2})
+RETURN c;
+
+MATCH circuito = (c:Cliente)-[:APOYA*]->(c)
+RETURN circuito;
+
+MERGE (c1:Cliente {nombre: 'Demetrio'})
+MERGE (c2:Cliente {nombre: 'Genara'})
+CREATE (c1)-[:APOYA]->(c2)
+RETURN c1,c2;
