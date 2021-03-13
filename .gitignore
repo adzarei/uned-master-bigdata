@@ -1,14 +1,25 @@
+# R
+*.Rproj
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
-**/conda-env/
-*.Rproj
-**.idea/
+
+# Conda
+**/conda-env
+
+# JetBrains IDE
+**/.idea
+
+# Jupyter
 .ipynb_*
+checkpoint/
+**/.ipynb_checkpoints
+
+# Python
+*.h5
+
+# Otehr
 metastore_db/
 *derby.log*
-conda_env/
-*.h5
 tb_logs/
-checkpoint/
