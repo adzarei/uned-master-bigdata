@@ -4,7 +4,7 @@
 .Ruserdata
 **/conda-env/
 *.Rproj
-*/.idea/*
+**.idea/
 .ipynb_*
 metastore_db/
 *derby.log*
