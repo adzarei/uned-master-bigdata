@@ -1,0 +1,44 @@
+//# Apartado1
+//# Creacion de KeySpace:
+CREATE KEYSPACE agenciaviajes  WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };
+USE agenciaviajes;
+
+//# Creacicion de tabla de Q1:
+CREATE TABLE viajes_by_cliente (     idcliente text,     fechapartida date,     lugarpartida text,     lugardestino text,     numdias int, PRIMARY KEY (idcliente, fechapartida));
+
+//# Creacion de tabla de Q2:
+CREATE TABLE clientes_hitos_by_viaje (     idviaje int,     idcliente text,     hitos map<text, text> STATIC, PRIMARY KEY (idviaje, idcliente));
+
+//# Apartado 2:
+//# Insert 1
+INSERT INTO agenciaviajes.clientes_hitos_by_viaje ( idviaje, idcliente, hitos) VALUES ( 3, 'Bertoldo', { 'Versailles' : '3-05 contacta agenica'}) ;
+INSERT INTO agenciaviajes.viajes_by_cliente (idcliente, fechapartida, lugarpartida, lugardestino, numdias) VALUES ('Bertoldo', '2020-05-02', 'Madrid', 'Paris', 2);
+
+//# Insert 2
+INSERT INTO agenciaviajes.clientes_hitos_by_viaje ( idviaje, idcliente) VALUES ( 3, 'Herminia') ;
+INSERT INTO agenciaviajes.viajes_by_cliente (idcliente, fechapartida, lugarpartida, lugardestino, numdias) VALUES ('Herminia', '2020-05-02', 'Barcelona', 'Paris', 2);
+
+//# Insert 3
+INSERT INTO agenciaviajes.clientes_hitos_by_viaje ( idviaje, idcliente, hitos) VALUES ( 4, 'Bertoldo', { 'Transbordo' : 'Frankfurt, puerta C27'}) ;
+INSERT INTO agenciaviajes.viajes_by_cliente (idcliente, fechapartida, lugarpartida, lugardestino, numdias) VALUES ('Bertoldo', '2020-06-01', 'Madrid', 'Tokio', 7);
+
+
+//# Apartado 3:
+//# Consulta 1:
+SELECT lugarpartida, lugardestino, fechapartida, numdias
+FROM agenciaviajes.viajes_by_cliente
+WHERE idcliente = 'Bertoldo'
+ORDER BY fechapartida DESC;
+
+//# Consulta 2:
+ SELECT idcliente, hitos
+ FROM agenciaviajes.clientes_hitos_by_viaje
+ WHERE idviaje = 3
+ ORDER BY idcliente ASC ;
+
+//# Apartado 4:
+UPDATE agenciaviajes.clientes_hitos_by_viaje SET hitos = hitos + {'regreso' : '2020-05-04'} WHERE idviaje = 3
+
+//# Apartado 5:
+//# Solucion 1:
+SELECT idcliente FROM agenciaviajes.viajes_by_cliente WHERE fechapartida = '2020-05-02' ALLOW FILTERING;
