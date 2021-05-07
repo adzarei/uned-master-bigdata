@@ -1,0 +1,11 @@
+docker run --name neo4j -d \
+--publish=7474:7474 --publish=7687:7687 \
+--volume=neo4j-logs:/logs \
+--volume=neo4j-data:/data \
+--volume=neo4j-tmp:/tmp/src \
+neo4j:latest
+
+
+docker cp src/grafo.txt neo4j:/tmp/src/grafo.txt
+
+docker exec -it neo4j cypher-shell -u neo4j -p uned1 -f /tmp/src/grafo.txt
